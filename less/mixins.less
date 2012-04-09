@@ -196,6 +196,16 @@
           border-radius: @radius;
 }
 
+// OTM Border Radius bottom
+.border-radius-bottom(@radius: 5px) {
+  -webkit-border-bottom-right-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-radius-bottomright: @radius;
+  -moz-border-radius-bottomleft: @radius;
+  border-bottom-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+
 // Drop shadows
 .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: @shadow;

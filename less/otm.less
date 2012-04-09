@@ -1,0 +1,87 @@
+
+@sidebar-width: 300px;
+
+#map {
+	position: absolute;
+    top: 45px;
+    bottom: 0;
+    left: 0;
+    right: @sidebar-width;
+}
+
+.sidebar{
+	position: absolute;
+    right: 0;
+    width: @sidebar-width;
+    background-color: green;
+    bottom: 0;
+    top: 45px;
+
+    &.hidden{
+    	position: absolute;
+		right: @sidebar-width;
+		width: @sidebar-width;
+    }
+}
+
+.ds{
+	background: none repeat scroll 0 0 #000000;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+
+	&.o1{
+		.opacity(5)
+	}
+	&.o2{
+		.opacity(4)
+	}
+	&.o3{
+		.opacity(3)
+	}
+	&.o4{
+		.opacity(2)
+	}
+	&.o5{
+		.opacity(1)
+	}
+	&.h1{
+		height: 1px;
+	}
+	&.h2{
+		height: 2px;
+	}
+	&.h3{
+		height: 3px;
+	}
+	&.h4{
+		height: 4px;
+	}
+	&.h5{
+		height: 5px;
+	}
+	&.v1{
+		width: 1px;
+	}
+	&.v2{
+		width: 2px;
+	}
+	&.v3{
+		width: 3px;
+	}
+	&.v4{
+		width: 4px;
+	}
+	&.v5{
+		width: 5px;
+	}
+}
+#ds-h div {
+    width: 100%;
+}
+
+#ds-v div {
+    height: 100%;
+}
