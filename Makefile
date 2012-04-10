@@ -1,7 +1,7 @@
 BOOTSTRAP = ./docs/assets/css/bootstrap.css
-BOOTSTRAP_LESS = ./bootstrap.less
+BOOTSTRAP_LESS = ./less/bootstrap.less
 BOOTSTRAP_RESPONSIVE = ./docs/assets/css/bootstrap-responsive.css
-BOOTSTRAP_RESPONSIVE_LESS = ./responsive.less
+BOOTSTRAP_RESPONSIVE_LESS = ./less/responsive.less
 LESS_COMPRESSOR ?= `which lessc`
 WATCHR ?= `which watchr`
 
@@ -30,17 +30,14 @@ bootstrap:
 	mkdir -p bootstrap/css
 	mkdir -p bootstrap/js
 	cp img/* bootstrap/img/
-	cd less; lessc ${BOOTSTRAP_LESS} > ../bootstrap/css/bootstrap.css
-	#cd less; lessc --compress ${BOOTSTRAP_LESS} > ../bootstrap/css/bootstrap.min.css
-	cd less; lessc ${BOOTSTRAP_RESPONSIVE_LESS} > ../bootstrap/css/bootstrap-responsive.css
-	cp ./bootstrap/css/bootstrap.css ../../webroot/css/
-	cp ./bootstrap/css/bootstrap-responsive.css ../../webroot/css/
-	#cd less; lessc --compress ${BOOTSTRAP_RESPONSIVE_LESS} > ../bootstrap/css/bootstrap-responsive.min.css
-	#cat js/bootstrap-transition.js js/bootstrap-alert.js js/bootstrap-button.js js/bootstrap-carousel.js js/bootstrap-collapse.js js/bootstrap-dropdown.js js/bootstrap-modal.js js/bootstrap-tooltip.js js/bootstrap-popover.js js/bootstrap-scrollspy.js js/bootstrap-tab.js js/bootstrap-typeahead.js > bootstrap/js/bootstrap.js
-	#uglifyjs -nc bootstrap/js/bootstrap.js > bootstrap/js/bootstrap.min.tmp.js
-	#echo "/**\n* Bootstrap.js by @fat & @mdo\n* Copyright 2012 Twitter, Inc.\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > bootstrap/js/copyright.js
-	#cat bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js > bootstrap/js/bootstrap.min.js
-	#rm bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js
+	lessc ${BOOTSTRAP_LESS} > ./bootstrap/css/bootstrap.css
+	lessc --compress ${BOOTSTRAP_LESS} > ./bootstrap/css/bootstrap.min.css
+	cp ./bootstrap/css/bootstrap.css ../../../webroot/css/
+	cp ./bootstrap/css/bootstrap.min.css ../../../webroot/css/
+	lessc ${BOOTSTRAP_RESPONSIVE_LESS} > ./bootstrap/css/bootstrap-responsive.css
+	lessc --compress ${BOOTSTRAP_RESPONSIVE_LESS} > ./bootstrap/css/bootstrap-responsive.min.css
+	cp ./bootstrap/css/bootstrap-responsive.css ../../../webroot/css/
+	cp ./bootstrap/css/bootstrap-responsive.min.css ../../../webroot/css/
 
 #
 # MAKE FOR GH-PAGES 4 FAT & MDO ONLY (O_O  )
